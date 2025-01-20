@@ -1,0 +1,24 @@
+[gd_resource type="Shortcut" load_steps=6 format=3 uid="uid://duwk8ykoc0iw8"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_nethu"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_llpjr"]
+device = -1
+keycode = 4194308
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_8lpvk"]
+button_index = 4
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_q4v7l"]
+button_index = 9
+pressed = true
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_nmwus"]
+button_index = 1
+pressed = true
+
+[resource]
+events = [SubResource("InputEventKey_nethu"), SubResource("InputEventKey_llpjr"), SubResource("InputEventJoypadButton_8lpvk"), SubResource("InputEventJoypadButton_q4v7l"), SubResource("InputEventJoypadButton_nmwus")]

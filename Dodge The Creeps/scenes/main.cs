@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Security.AccessControl;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class main : Node2D
 {
@@ -9,6 +10,12 @@ public partial class main : Node2D
 
     private int _score;
     public HUD hud;
+
+    [Export]
+    public Control Settings { get; set; }
+
+    public double Speed;
+
     public override void _Ready()
     {
         Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -18,9 +25,9 @@ public partial class main : Node2D
     }
 
     public void SetColor()
-    {
-        var rect = GetNode<ColorRect>("Background");
-        rect.Color = Color.Color8(((byte)GD.RandRange(75, 130)), ((byte)GD.RandRange(75, 130)), ((byte)GD.RandRange(75, 130)));
+    {                                                                                                              
+        var rect = GetNode<ColorRect>("Background");                                                                                        
+        rect.Color = Color.Color8(((byte)GD.RandRange(45, 160)), ((byte)GD.RandRange(45, 160)), ((byte)GD.RandRange(45, 160)));
     }
     public void GameOver(bool t)
     {
@@ -28,6 +35,9 @@ public partial class main : Node2D
         GetNode<Timer>("Timer/ScoreTimer").Stop();
 
         hud.ShowGameOver(t);
+        HUD.Music("stop");
+        if (HUD.playMusic)
+            hud.GetNode<AudioStreamPlayer>("Sound/Gameover").Play();
     }
     public void NewGame()
     {
@@ -43,6 +53,9 @@ public partial class main : Node2D
         hud.UpdateScore(_score);
         hud.ShowMessage("Get Ready!");
         GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
+
+        HUD.Music("play");
+        CheckSettings();
     }
 
     public void PauseGame()
@@ -53,6 +66,7 @@ public partial class main : Node2D
             GetNode<Control>("HUD/PauseMenu").Show();
             GetNode<Button>("HUD/PauseMenu/ResumeButton").GrabFocus();
             Input.MouseMode = Input.MouseModeEnum.Visible;
+            HUD.Music("pause");
         }
     }
 
@@ -81,9 +95,15 @@ public partial class main : Node2D
         direction += (float)GD.RandRange(-Mathf.Pi / 4, Mathf.Pi / 4);
         mob.Rotation = direction;
 
-        var velocity = new Vector2((float)GD.RandRange(150.0, 250.0), 0);
+        var velocity = new Vector2((float)GD.RandRange(Speed - 30, Speed + 30), 0);
         mob.LinearVelocity = velocity.Rotated(direction);
 
         AddChild(mob);
+    }
+
+    public void CheckSettings()
+    {
+        GetNode<Timer>("Timer/MobTimer").WaitTime = SettingsMenu.MobTimerKeys[(int)Settings.GetNode<HSlider>("Difficulty/AmountSlider").Value];
+        Speed = SettingsMenu.MobSpeedKeys[(int)Settings.GetNode<HSlider>("Difficulty/SpeedSlider").Value];
     }
 }

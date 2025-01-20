@@ -13,11 +13,17 @@ public partial class HUD : CanvasLayer
 
     public Timer timer;
     public Label message;
+    public static AudioStreamPlayer click;
+    public static bool feedback = true;
+    public static AudioStreamPlayer music;
+    public static bool playMusic = true;
     public override void _Ready()
     {
         timer = GetNode<Timer>("MessageTimer");
         message = GetNode<Label>("Message");
-        GetNode<Button>("StartButton").GrabFocus();
+        click = GetNode<AudioStreamPlayer>("Sound/ClickSound");
+        music = GetNode<AudioStreamPlayer>("Sound/Music");
+        GetNode<Button>("Buttons/StartButton").GrabFocus();
     }
     
     public void ShowMessage(string text)
@@ -37,13 +43,11 @@ public partial class HUD : CanvasLayer
         }
         message.Text = "Dodge the Creeps!";
         message.Show();
-        GetNode<Button>("ChangeColour").Show();
 
         await ToSignal(GetTree().CreateTimer(1.0), SceneTreeTimer.SignalName.Timeout);
         Input.MouseMode = Input.MouseModeEnum.Visible;
-        GetNode<Button>("StartButton").Show();
-        GetNode<Button>("QuitButton").Show();
-        GetNode<Button>("StartButton").GrabFocus();
+        GetNode<Control>("Buttons").Show();
+        GetNode<Button>("Buttons/StartButton").GrabFocus();
     }
 
     public void UpdateScore(int score)
@@ -52,10 +56,9 @@ public partial class HUD : CanvasLayer
     }
     private void OnStartButtonPressed()
     {
-        GetNode<Button>("StartButton").Hide();
-        GetNode<Button>("QuitButton").Hide();
-        GetNode<Button>("ChangeColour").Hide();
+        GetNode<Control>("Buttons").Hide();
         EmitSignal(SignalName.StartGame);
+        Click();
     }
 
     private void OnChangeColourPressed()
@@ -65,10 +68,12 @@ public partial class HUD : CanvasLayer
     private void OnQuitButtonPressed()
     {
         GetNode<ConfirmationDialog>("QuitDialog").Popup();
+        Click();
     }
     private void OnQuitAccepted()
     {
         GetTree().Quit();
+        Click();
     }
     private void OnMessageTimerTimeout()
     {
@@ -79,5 +84,37 @@ public partial class HUD : CanvasLayer
         Engine.TimeScale = 1.0;
         GetNode<Control>("PauseMenu").Hide();
         Input.MouseMode = Input.MouseModeEnum.Captured;
+        HUD.Music("play");
+    }
+    public void SettingsPressed()
+    {
+        Click();
+        GetNode<Control>("Buttons").Hide();
+        message.Hide();
+        GetNode<Label>("ScoreLabel").Hide();
+        
+        GetNode<Control>("SettingsMenu").Show();
+        GetNode<Button>("SettingsMenu/Exit").GrabFocus();
+    }
+
+    public static void Click()
+    {
+        if (feedback)
+            click.Play();
+    }
+
+    public static void Music(string mode)
+    {
+        if (playMusic)
+        {
+            if (mode == "play")
+                music.Play();
+            else if (mode == "stop")
+                music.Stop();
+            else if (mode == "pause")
+                music.StreamPaused = true;
+            else if (mode == "resume")
+                music.StreamPaused = false;
+        }
     }
 }

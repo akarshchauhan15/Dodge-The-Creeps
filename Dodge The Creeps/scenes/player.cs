@@ -72,6 +72,8 @@ public partial class player : Area2D
     public void ReturnToMenu()
     {
         Delete(false);
+        HUD.Click();
+        HUD.Music("Stop");
     }
 
     public void Delete(bool t)

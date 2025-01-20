@@ -11,10 +11,11 @@ _data = {
 }
 point_count = 5
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("Settings")]
 process_mode = 1
 script = ExtResource("1_0aa67")
 MobScene = ExtResource("2_dm2da")
+Settings = NodePath("HUD/SettingsMenu")
 
 [node name="Background" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -62,6 +63,7 @@ color = Color(0, 0, 0, 0.482353)
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="confirmed" from="HUD/QuitDialog" to="HUD" method="OnQuitAccepted"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuButton" to="Player" method="ReturnToMenu"]
-[connection signal="pressed" from="HUD/PauseMenu/MenuButton" to="HUD" method="ResumeGame"]
+[connection signal="pressed" from="HUD/SettingsMenu/Exit" to="." method="CheckSettings"]
 
 [editable path="HUD"]
+[editable path="HUD/SettingsMenu"]
