@@ -12,4 +12,5 @@
 <img src="https://github.com/AkarshChauhan15/Dodge-The-Creeps/blob/main/Images/Gameplay.jpg" alt="Gameplay" width="300px">
  <img src="https://github.com/AkarshChauhan15/Dodge-The-Creeps/blob/main/Images/PauseMenu.jpg" alt="Pause Menu" width="300px">
 <img src="https://github.com/AkarshChauhan15/Dodge-The-Creeps/blob/main/Images/Gameover.jpg" alt="Gameover" width="300px">
+<img src="https://github.com/akarshchauhan15/Dodge-The-Creeps/blob/main/Images/Settings.png" alt="Settings" width="300px">
 </p>
