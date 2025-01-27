@@ -29,6 +29,23 @@ color = Color(0.381728, 0.589882, 0.579967, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_8fy7x")]
 
+[node name="HUD" parent="." instance=ExtResource("4_25hky")]
+
+[node name="SettingsMenu" parent="HUD" index="7" node_paths=PackedStringArray("timer")]
+timer = NodePath("../../Timer/ScoreTimer")
+
+[node name="Settings" parent="HUD/SettingsMenu" index="1"]
+visible = true
+
+[node name="TabContainer" parent="HUD/SettingsMenu/Controls" index="2"]
+current_tab = 0
+
+[node name="Keyboard" parent="HUD/SettingsMenu/Controls/TabContainer" index="1"]
+visible = true
+
+[node name="Mouse" parent="HUD/SettingsMenu/Controls/TabContainer" index="3"]
+visible = false
+
 [node name="Timer" type="Node2D" parent="."]
 
 [node name="MobTimer" type="Timer" parent="Timer"]
@@ -49,21 +66,18 @@ curve = SubResource("Curve2D_auuol")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
 
-[node name="HUD" parent="." instance=ExtResource("4_25hky")]
-
-[node name="ColorRect" parent="HUD/PauseMenu" index="0"]
-color = Color(0, 0, 0, 0.482353)
-
 [connection signal="Hit" from="Player" to="." method="GameOver"]
-[connection signal="Pause" from="Player" to="." method="PauseGame"]
+[connection signal="ChangeColour" from="HUD" to="." method="SetColor"]
+[connection signal="Menu" from="HUD" to="Player" method="ReturnToMenu"]
+[connection signal="StartGame" from="HUD" to="." method="NewGame"]
+[connection signal="pressed" from="HUD/PauseButton" to="." method="PauseGame"]
+[connection signal="confirmed" from="HUD/QuitDialog" to="HUD" method="OnQuitAccepted"]
+[connection signal="pressed" from="HUD/PauseMenu/ResumeButton" to="Player" method="WrapMouse"]
+[connection signal="pressed" from="HUD/PauseMenu/MenuButton" to="Player" method="ReturnToMenu"]
+[connection signal="pressed" from="HUD/SettingsMenu/Settings/Exit" to="." method="CheckSettings"]
 [connection signal="timeout" from="Timer/MobTimer" to="." method="MobTimerTimeout"]
 [connection signal="timeout" from="Timer/ScoreTimer" to="." method="ScoreTimerTimeout"]
 [connection signal="timeout" from="Timer/StartTimer" to="." method="StartTimerTimeout"]
-[connection signal="ChangeColour" from="HUD" to="." method="SetColor"]
-[connection signal="StartGame" from="HUD" to="." method="NewGame"]
-[connection signal="confirmed" from="HUD/QuitDialog" to="HUD" method="OnQuitAccepted"]
-[connection signal="pressed" from="HUD/PauseMenu/MenuButton" to="Player" method="ReturnToMenu"]
-[connection signal="pressed" from="HUD/SettingsMenu/Exit" to="." method="CheckSettings"]
 
 [editable path="HUD"]
 [editable path="HUD/SettingsMenu"]

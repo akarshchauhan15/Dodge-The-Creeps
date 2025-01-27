@@ -36,18 +36,20 @@ public partial class main : Node2D
 
         hud.ShowGameOver(t);
         HUD.Music("stop");
-        if (HUD.playMusic)
-            hud.GetNode<AudioStreamPlayer>("Sound/Gameover").Play();
+
     }
     public void NewGame()
     {
+        CheckSettings();
         _score = 0;
 
         var player = GetNode<player>("Player");
         var pos = GetNode<Marker2D>("StartPosition");
         player.Start(pos.Position);
 
-        Input.MouseMode = Input.MouseModeEnum.Captured;
+        if (player.mouseMode)
+            Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
+            Input.WarpMouse(pos.Position);
 
         GetNode<Timer>("Timer/StartTimer").Start();
         hud.UpdateScore(_score);
@@ -55,14 +57,13 @@ public partial class main : Node2D
         GetTree().CallGroup("mobs", Node.MethodName.QueueFree);
 
         HUD.Music("play");
-        CheckSettings();
     }
 
     public void PauseGame()
     {
-        if (GetNode<Timer>("Timer/ScoreTimer").TimeLeft > 0 && Engine.TimeScale != 0)
+        if (GetNode<Timer>("Timer/ScoreTimer").TimeLeft > 0)
         {
-            Engine.TimeScale = 0;
+            GetTree().Paused = true;
             GetNode<Control>("HUD/PauseMenu").Show();
             GetNode<Button>("HUD/PauseMenu/ResumeButton").GrabFocus();
             Input.MouseMode = Input.MouseModeEnum.Visible;
@@ -103,7 +104,8 @@ public partial class main : Node2D
 
     public void CheckSettings()
     {
-        GetNode<Timer>("Timer/MobTimer").WaitTime = SettingsMenu.MobTimerKeys[(int)Settings.GetNode<HSlider>("Difficulty/AmountSlider").Value];
-        Speed = SettingsMenu.MobSpeedKeys[(int)Settings.GetNode<HSlider>("Difficulty/SpeedSlider").Value];
+        GetNode<Timer>("Timer/MobTimer").WaitTime = SettingsMenu.MobTimerKeys[(int)Settings.GetNode<HSlider>("Settings/Difficulty/AmountSlider").Value];
+        Speed = SettingsMenu.MobSpeedKeys[(int)Settings.GetNode<HSlider>("Settings/Difficulty/SpeedSlider").Value];
+        player.mouseMode = (Settings.GetNode<TabContainer>("Controls/TabContainer/Mouse/TabContainer").CurrentTab == 0);
     }
 }

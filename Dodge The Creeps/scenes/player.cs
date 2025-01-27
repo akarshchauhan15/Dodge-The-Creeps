@@ -5,41 +5,71 @@ public partial class player : Area2D
 {
     [Signal]
     public delegate void HitEventHandler(bool t = true);
-    [Signal]
-    public delegate void PauseEventHandler();
 
     [Export]
     public int Speed { get; set; } = 400;
+    public static bool mouseMode = true;
+    public bool keyInput = false;
 
     public Vector2 ScreenSize;
+    public Vector2 velocity;
+    public Vector2 position;
+
+    public AnimatedSprite2D Sprite;
 
     public override void _Ready()
     {
+        Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         ScreenSize = GetViewportRect().Size;
         Show();
     }
 
     public override void _Process(double delta)
     {
-        var velocity = Vector2.Zero;
+        if (!mouseMode && !keyInput)
+        {
+            Vector2 mousePosition = GetGlobalMousePosition();
+            position = mousePosition;
+
+            Position = Position.MoveToward(mousePosition, Speed * (float)delta);
+
+            Animate(mousePosition);
+        }
+        else if (mouseMode && !keyInput)
+        {
+            Vector2 motion = GetGlobalMousePosition();
+            Animate(motion);
+            Position = motion;
+            position = motion;
+        }
+
+        velocity = Vector2.Zero;
 
         velocity.Y += Input.GetActionStrength("down") - Input.GetActionStrength("up");
         velocity.X += Input.GetActionStrength("right") - Input.GetActionStrength("left");
 
-        var Sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-
-        if (velocity.Length() > 0)
+        if (velocity != Vector2.Zero)
         {
-            velocity = velocity.Normalized() * Speed;
-            Sprite.Play();
-        }
-        else
-        {
-            Sprite.Stop();
+            if (!keyInput)
+            {
+                keyInput = true;
+                if (!mouseMode)
+                    Input.MouseMode = Input.MouseModeEnum.Hidden;
+            }
         }
 
-        if (Engine.TimeScale != 0)
+        if (keyInput)
         {
+            if (velocity != Vector2.Zero)
+            {
+                velocity = velocity.Normalized() * Speed;
+                Sprite.Play();
+            }
+            else
+            {
+                Sprite.Stop();
+            }
+
             if (velocity.X != 0)
             {
                 Sprite.Animation = "walk";
@@ -50,18 +80,45 @@ public partial class player : Area2D
                 Sprite.Animation = "up";
                 Sprite.FlipV = velocity.Y > 0;
             }
+
+            Position += velocity * (float)delta;
         }
 
-        Position += velocity * (float)delta;
+        if (GetGlobalMousePosition() != position)
+        {
+            if (keyInput)
+            {
+                keyInput = false;
+                Input.WarpMouse(Position);
+                if (!mouseMode)
+                    Input.MouseMode = Input.MouseModeEnum.Visible;
+            }
+        }
+
         Position = new Vector2(
             x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
             y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
         );
+    }
 
-        if (Input.IsActionJustPressed("pause"))
+    public void Animate(Vector2 motion)
+    {
+        Sprite.FlipV = (Position.Y < motion.Y);
+        Sprite.FlipH = (Position.X > motion.X);
+
+        if (Position != motion)
         {
-            EmitSignal(SignalName.Pause);
+            double angle = (Math.Abs(Math.Abs(GetAngleTo(motion) * 180 / Math.PI) - 90));
+
+            if (angle <= 40)
+                Sprite.Play("up");
+
+            else if (angle >= 50)
+                Sprite.Play("walk");
         }
+
+        else
+            Sprite.Stop();
     }
 
     private void OnBodyEntered(Node2D body)
@@ -72,6 +129,8 @@ public partial class player : Area2D
     public void ReturnToMenu()
     {
         Delete(false);
+        GetNode<Control>("../HUD/PauseMenu").Hide();
+        GetTree().Paused = false;
         HUD.Click();
         HUD.Music("Stop");
     }
@@ -88,5 +147,12 @@ public partial class player : Area2D
         Position = position;
         Show();
         GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+    }
+    public void WrapMouse()
+    {
+        if (!keyInput)
+        {
+            Input.WarpMouse(Position);
+        }
     }
 }

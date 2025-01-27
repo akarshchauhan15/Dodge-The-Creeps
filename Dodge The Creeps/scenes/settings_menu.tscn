@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://rdi0m84vxy8w"]
+[gd_scene load_steps=9 format=3 uid="uid://rdi0m84vxy8w"]
 
 [ext_resource type="Script" path="res://scenes/SettingsMenu.cs" id="1_xw0p0"]
 [ext_resource type="FontFile" uid="uid://s176558udh6w" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="2_o8hfq"]
 [ext_resource type="StyleBox" uid="uid://diwgsarcgq1bn" path="res://dodge_the_creeps_2d_assets/pressed.tres" id="3_hxgqn"]
 [ext_resource type="Shortcut" uid="uid://duwk8ykoc0iw8" path="res://scenes/exit.tres" id="3_qx68l"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7247"]
-bg_color = Color(0, 0.11028, 0.0288796, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu0tj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwydj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqj2d"]
 bg_color = Color(0.286275, 0.588235, 0.313726, 1)
@@ -33,7 +34,14 @@ offset_right = 480.0
 offset_bottom = 720.0
 color = Color(0, 0, 0, 0.227451)
 
-[node name="Exit" type="Button" parent="."]
+[node name="Settings" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tu0tj")
+
+[node name="Exit" type="Button" parent="Settings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.275
@@ -50,7 +58,7 @@ shortcut_in_tooltip = false
 text = "Home"
 metadata/_edit_use_anchors_ = true
 
-[node name="Controls" type="Button" parent="."]
+[node name="Controls" type="Button" parent="Settings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 4.475
@@ -66,7 +74,7 @@ shortcut_in_tooltip = false
 text = "Controls"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="RichTextLabel" parent="."]
+[node name="Label" type="RichTextLabel" parent="Settings"]
 layout_mode = 0
 offset_left = 117.0
 offset_right = 364.0
@@ -77,12 +85,12 @@ text = "Settings"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Difficulty" type="Control" parent="."]
+[node name="Difficulty" type="Control" parent="Settings"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="RichTextLabel" parent="Difficulty"]
+[node name="Label" type="RichTextLabel" parent="Settings/Difficulty"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -97,7 +105,7 @@ Amount"
 fit_content = true
 autowrap_mode = 0
 
-[node name="SpeedSlider" type="HSlider" parent="Difficulty"]
+[node name="SpeedSlider" type="HSlider" parent="Settings/Difficulty"]
 layout_mode = 0
 offset_left = 212.0
 offset_top = 210.0
@@ -107,7 +115,7 @@ focus_neighbor_bottom = NodePath("../AmountSlider")
 max_value = 4.0
 value = 2.0
 
-[node name="AmountSlider" type="HSlider" parent="Difficulty"]
+[node name="AmountSlider" type="HSlider" parent="Settings/Difficulty"]
 layout_mode = 0
 offset_left = 212.0
 offset_top = 260.0
@@ -118,7 +126,7 @@ focus_neighbor_bottom = NodePath("../../Sound/MusicButton")
 max_value = 4.0
 value = 2.0
 
-[node name="Difficulty" type="RichTextLabel" parent="Difficulty"]
+[node name="Difficulty" type="RichTextLabel" parent="Settings/Difficulty"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -137,12 +145,12 @@ text = "Difficulty"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Sound" type="Control" parent="."]
+[node name="Sound" type="Control" parent="Settings"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Sound" type="RichTextLabel" parent="Sound"]
+[node name="Sound" type="RichTextLabel" parent="Settings/Sound"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -161,7 +169,7 @@ text = "Sound"
 fit_content = true
 autowrap_mode = 0
 
-[node name="MusicButton" type="Button" parent="Sound"]
+[node name="MusicButton" type="Button" parent="Settings/Sound"]
 layout_mode = 1
 offset_left = 22.0
 offset_top = 444.0
@@ -179,7 +187,7 @@ button_pressed = true
 shortcut_in_tooltip = false
 text = "Effects"
 
-[node name="FeedbackButton" type="Button" parent="Sound"]
+[node name="FeedbackButton" type="Button" parent="Settings/Sound"]
 layout_mode = 1
 offset_left = 212.0
 offset_top = 444.0
@@ -196,14 +204,18 @@ button_pressed = true
 shortcut_in_tooltip = false
 text = "Feedback"
 
-[node name="Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 480.0
-offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_u7247")
+[node name="Controls" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 440.0
+offset_bottom = 563.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lwydj")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Controls"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -218,7 +230,7 @@ text = "Controls"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Return" type="Button" parent="Panel"]
+[node name="Return" type="Button" parent="Controls"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.00833333
@@ -227,33 +239,32 @@ offset_left = 33.0
 offset_top = 614.0
 offset_right = 212.0
 offset_bottom = 691.0
-focus_neighbor_top = NodePath("../TabContainer/Keyboard")
 theme_override_fonts/font = ExtResource("2_o8hfq")
 theme_override_font_sizes/font_size = 56
 shortcut = ExtResource("3_qx68l")
 shortcut_in_tooltip = false
 text = "Back"
 
-[node name="TabContainer" type="TabContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 111.0
-offset_right = 445.0
-offset_bottom = 171.0
+[node name="TabContainer" type="TabContainer" parent="Controls"]
+layout_mode = 2
+offset_top = 89.0
+offset_right = 480.0
+offset_bottom = 141.0
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_o8hfq")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_xqj2d")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_xlygj")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
-[node name="Keyboard" type="Control" parent="Panel/TabContainer"]
+[node name="Keyboard" type="Control" parent="Controls/TabContainer"]
+visible = false
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../Return")
-focus_mode = 2
 metadata/_tab_index = 0
 
-[node name="KeyboardControls" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="KeyboardControls" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -272,7 +283,7 @@ Numpad
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls2" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="KeyboardControls2" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -289,7 +300,7 @@ Pause"
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls3" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="KeyboardControls3" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -306,7 +317,7 @@ Space"
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls4" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="KeyboardControls4" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -323,7 +334,7 @@ Backspace"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Movement" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="Movement" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -339,7 +350,7 @@ text = "Movement"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Pause" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="Pause" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -355,7 +366,7 @@ text = "Pause"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Select" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="Select" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -371,7 +382,7 @@ text = "Select"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Go Back" type="RichTextLabel" parent="Panel/TabContainer/Keyboard"]
+[node name="Go Back" type="RichTextLabel" parent="Controls/TabContainer/Keyboard"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -387,14 +398,13 @@ text = "Go Back"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Gamepad" type="Control" parent="Panel/TabContainer"]
+[node name="Gamepad" type="Control" parent="Controls/TabContainer"]
 visible = false
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../Return")
-focus_mode = 2
 metadata/_tab_index = 1
 
-[node name="KeyboardControls" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="KeyboardControls" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -413,7 +423,7 @@ D Pad
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls2" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="KeyboardControls2" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -430,7 +440,7 @@ Back"
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls3" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="KeyboardControls3" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -447,7 +457,7 @@ Right Bumper"
 fit_content = true
 autowrap_mode = 0
 
-[node name="KeyboardControls4" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="KeyboardControls4" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -464,7 +474,7 @@ Left Bumper"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Movement" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="Movement" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -480,7 +490,7 @@ text = "Movement"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Pause" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="Pause" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -496,7 +506,7 @@ text = "Pause"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Select" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="Select" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -512,7 +522,7 @@ text = "Select"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Go Back" type="RichTextLabel" parent="Panel/TabContainer/Gamepad"]
+[node name="Go Back" type="RichTextLabel" parent="Controls/TabContainer/Gamepad"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -528,8 +538,75 @@ text = "Go Back"
 fit_content = true
 autowrap_mode = 0
 
-[connection signal="pressed" from="Exit" to="." method="Exit"]
-[connection signal="pressed" from="Controls" to="." method="Controls"]
-[connection signal="toggled" from="Sound/MusicButton" to="." method="Music"]
-[connection signal="toggled" from="Sound/FeedbackButton" to="." method="Feedback"]
-[connection signal="pressed" from="Panel/Return" to="." method="Controls"]
+[node name="Mouse" type="Control" parent="Controls/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Mode" type="Label" parent="Controls/TabContainer/Mouse"]
+layout_mode = 2
+offset_left = 33.0
+offset_top = 92.0
+offset_right = 144.0
+offset_bottom = 131.0
+theme_override_fonts/font = ExtResource("2_o8hfq")
+theme_override_font_sizes/font_size = 32
+text = "Mode"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Controls/TabContainer/Mouse"]
+layout_mode = 2
+offset_left = 130.0
+offset_top = 85.0
+offset_right = 480.0
+offset_bottom = 137.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_o8hfq")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_xqj2d")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_xlygj")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Drag" type="Control" parent="Controls/TabContainer/Mouse/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="Controls/TabContainer/Mouse/TabContainer/Drag"]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 53.0
+offset_right = 305.0
+offset_bottom = 260.0
+theme_override_fonts/font = ExtResource("2_o8hfq")
+theme_override_font_sizes/font_size = 32
+text = "Drag the mouse to control the movement.
+
+The player will be snapped to the mouse."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Direct" type="Control" parent="Controls/TabContainer/Mouse/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label" type="Label" parent="Controls/TabContainer/Mouse/TabContainer/Direct"]
+layout_mode = 0
+offset_left = -83.0
+offset_top = 42.0
+offset_right = 305.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("2_o8hfq")
+theme_override_font_sizes/font_size = 32
+text = "Point the mouse in the direction you want the player to move.
+
+The player will follow the cursor."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Settings/Exit" to="." method="Exit"]
+[connection signal="pressed" from="Settings/Controls" to="." method="Controls"]
+[connection signal="toggled" from="Settings/Sound/MusicButton" to="." method="Music"]
+[connection signal="toggled" from="Settings/Sound/FeedbackButton" to="." method="Feedback"]
+[connection signal="pressed" from="Controls/Return" to="." method="Controls"]

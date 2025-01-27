@@ -39,6 +39,8 @@ public partial class HUD : CanvasLayer
         if (t)
         {
             ShowMessage("Game Over!");
+            if (playMusic)
+                GetNode<AudioStreamPlayer>("Sound/Gameover").Play();
             await ToSignal(timer, Timer.SignalName.Timeout);
         }
         message.Text = "Dodge the Creeps!";
@@ -72,8 +74,8 @@ public partial class HUD : CanvasLayer
     }
     private void OnQuitAccepted()
     {
-        GetTree().Quit();
         Click();
+        GetTree().Quit();
     }
     private void OnMessageTimerTimeout()
     {
@@ -81,10 +83,13 @@ public partial class HUD : CanvasLayer
     }
     public void ResumeGame()
     {
-        Engine.TimeScale = 1.0;
+        GetTree().Paused = false;
         GetNode<Control>("PauseMenu").Hide();
-        Input.MouseMode = Input.MouseModeEnum.Captured;
-        HUD.Music("play");
+        if (player.mouseMode)
+        {
+            Input.MouseMode = Input.MouseModeEnum.ConfinedHidden;
+        }
+        HUD.Music("resume");
     }
     public void SettingsPressed()
     {
@@ -92,9 +97,10 @@ public partial class HUD : CanvasLayer
         GetNode<Control>("Buttons").Hide();
         message.Hide();
         GetNode<Label>("ScoreLabel").Hide();
+        GetNode<Control>("PauseMenu").Hide();
         
         GetNode<Control>("SettingsMenu").Show();
-        GetNode<Button>("SettingsMenu/Exit").GrabFocus();
+        GetNode<Button>("SettingsMenu/Settings/Exit").GrabFocus();
     }
 
     public static void Click()

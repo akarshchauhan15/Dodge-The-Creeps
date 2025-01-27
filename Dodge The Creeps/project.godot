@@ -21,10 +21,15 @@ config/windows_native_icon="res://icon.ico"
 window/size/viewport_width=480
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 
 [dotnet]
 
 project/assembly_name="Dodge The Creeps"
+
+[gui]
+
+timers/button_shortcut_feedback_highlight_time=0.1
 
 [input]
 

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "E:\\Projects\\Godot\\Dodge The Creeps\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\hud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:hud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\scenes\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,90 +30,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SettingsMenu.cs",
               "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\SettingsMenu.cs",
               "RelativeDocumentMoniker": "scenes\\SettingsMenu.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\SettingsMenu.cs",
               "RelativeToolTip": "scenes\\SettingsMenu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABCAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAkwCIAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T13:53:28.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-18T13:53:28.093Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "main.cs",
               "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\main.cs",
               "RelativeDocumentMoniker": "scenes\\main.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\main.cs",
               "RelativeToolTip": "scenes\\main.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAABcAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAUwDEAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T19:17:12.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-20T19:17:12.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Mob.cs",
-              "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\Mob.cs",
-              "RelativeDocumentMoniker": "Mob.cs",
-              "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\Mob.cs",
-              "RelativeToolTip": "Mob.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-20T20:10:19.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "HUD.cs",
               "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\HUD.cs",
               "RelativeDocumentMoniker": "HUD.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\HUD.cs",
               "RelativeToolTip": "HUD.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAuwEIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAFcAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-21T09:24:13.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-21T09:24:13.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "player.cs",
               "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\player.cs",
               "RelativeDocumentMoniker": "scenes\\player.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\player.cs",
               "RelativeToolTip": "scenes\\player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAgwF8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-18T19:16:22.204Z",
               "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 1062,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Mob.cs",
+              "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\Mob.cs",
+              "RelativeDocumentMoniker": "Mob.cs",
+              "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\Mob.cs",
+              "RelativeToolTip": "Mob.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-20T20:10:19.32Z"
             }
           ]
         }
