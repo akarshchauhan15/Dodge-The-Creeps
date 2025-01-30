@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://HUD.cs" id="1_ry3vs"]
 [ext_resource type="FontFile" uid="uid://s176558udh6w" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="2_qitvs"]
-[ext_resource type="PackedScene" uid="uid://byrnvhng3gh20" path="res://scenes/quit_dialog.tscn" id="3_u36uj"]
-[ext_resource type="Shortcut" uid="uid://duwk8ykoc0iw8" path="res://scenes/exit.tres" id="3_x0yoo"]
+[ext_resource type="Shortcut" uid="uid://brhfddsm5jelr" path="res://scenes/exit.tres" id="3_x0yoo"]
 [ext_resource type="PackedScene" uid="uid://rdi0m84vxy8w" path="res://scenes/settings_menu.tscn" id="4_pl43f"]
 [ext_resource type="AudioStream" uid="uid://cr6lsbhswpukh" path="res://dodge_the_creeps_2d_assets/sounds/mixkit-cool-interface-click-tone-2568-[AudioTrimmer.com].wav" id="5_b8kym"]
+[ext_resource type="PackedScene" uid="uid://cajvmxm8mc3et" path="res://scenes/quit_menu.tscn" id="5_eeg84"]
 [ext_resource type="AudioStream" uid="uid://mt3gayfyi4r4" path="res://dodge_the_creeps_2d_assets/art/gameover.wav" id="6_hfkby"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uw2ia"]
@@ -574,12 +574,6 @@ theme_override_font_sizes/font_size = 64
 wait_time = 2.0
 one_shot = true
 
-[node name="QuitDialog" parent="." instance=ExtResource("3_u36uj")]
-size = Vector2i(240, 90)
-ok_button_text = "Yes"
-dialog_text = "Do you want to quit?"
-cancel_button_text = "No"
-
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
 visible = false
@@ -709,6 +703,8 @@ text = "Quit"
 [node name="SettingsMenu" parent="." instance=ExtResource("4_pl43f")]
 visible = false
 
+[node name="QuitMenu" parent="." instance=ExtResource("5_eeg84")]
+
 [node name="Sound" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -732,3 +728,7 @@ stream = ExtResource("6_hfkby")
 [connection signal="pressed" from="PauseMenu/ResumeButton" to="." method="ResumeGame"]
 [connection signal="pressed" from="PauseMenu/SettingsButton" to="." method="SettingsPressed"]
 [connection signal="pressed" from="PauseMenu/QuitButton" to="." method="OnQuitButtonPressed"]
+[connection signal="pressed" from="QuitMenu/ColorRect/Yes" to="." method="OnQuitAccepted"]
+[connection signal="pressed" from="QuitMenu/ColorRect/No" to="." method="OnQuitRejected"]
+
+[editable path="QuitMenu"]

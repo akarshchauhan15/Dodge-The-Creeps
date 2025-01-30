@@ -69,13 +69,23 @@ public partial class HUD : CanvasLayer
     }
     private void OnQuitButtonPressed()
     {
-        GetNode<ConfirmationDialog>("QuitDialog").Popup();
+        GetNode<Panel>("QuitMenu").Show();
+        GetNode<Button>("QuitMenu/ColorRect/No").GrabFocus();
         Click();
     }
     private void OnQuitAccepted()
     {
         Click();
         GetTree().Quit();
+    }
+    private void OnQuitRejected()
+    {
+        Click();
+        GetNode<Panel>("QuitMenu").Hide();
+        if (GetTree().Paused)
+            GetNode<Button>("PauseMenu/ResumeButton").GrabFocus();
+        else
+            GetNode<Button>("Buttons/StartButton").GrabFocus();
     }
     private void OnMessageTimerTimeout()
     {

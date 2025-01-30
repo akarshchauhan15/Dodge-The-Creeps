@@ -29,9 +29,13 @@ public partial class SettingsMenu : Control
         Hide();
 
         if (GetTree().Paused)
+        {
             GetNode<Control>("../PauseMenu").Show();
+            GetNode<Label>("../ScoreLabel").Show();
+        }
 
-        else {
+        else
+        {
             buttons.Show();
             GetParent<CanvasLayer>().GetNode<Label>("ScoreLabel").Show();
             GetParent<CanvasLayer>().GetNode<Label>("Message").Show();

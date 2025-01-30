@@ -31,7 +31,7 @@ color = Color(0.381728, 0.589882, 0.579967, 1)
 
 [node name="HUD" parent="." instance=ExtResource("4_25hky")]
 
-[node name="SettingsMenu" parent="HUD" index="7" node_paths=PackedStringArray("timer")]
+[node name="SettingsMenu" parent="HUD" index="6" node_paths=PackedStringArray("timer")]
 timer = NodePath("../../Timer/ScoreTimer")
 
 [node name="Settings" parent="HUD/SettingsMenu" index="1"]
@@ -71,7 +71,6 @@ curve = SubResource("Curve2D_auuol")
 [connection signal="Menu" from="HUD" to="Player" method="ReturnToMenu"]
 [connection signal="StartGame" from="HUD" to="." method="NewGame"]
 [connection signal="pressed" from="HUD/PauseButton" to="." method="PauseGame"]
-[connection signal="confirmed" from="HUD/QuitDialog" to="HUD" method="OnQuitAccepted"]
 [connection signal="pressed" from="HUD/PauseMenu/ResumeButton" to="Player" method="WrapMouse"]
 [connection signal="pressed" from="HUD/PauseMenu/MenuButton" to="Player" method="ReturnToMenu"]
 [connection signal="pressed" from="HUD/SettingsMenu/Settings/Exit" to="." method="CheckSettings"]
@@ -81,3 +80,4 @@ curve = SubResource("Curve2D_auuol")
 
 [editable path="HUD"]
 [editable path="HUD/SettingsMenu"]
+[editable path="HUD/QuitMenu"]

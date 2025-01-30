@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/SettingsMenu.cs" id="1_xw0p0"]
 [ext_resource type="FontFile" uid="uid://s176558udh6w" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="2_o8hfq"]
 [ext_resource type="StyleBox" uid="uid://diwgsarcgq1bn" path="res://dodge_the_creeps_2d_assets/pressed.tres" id="3_hxgqn"]
-[ext_resource type="Shortcut" uid="uid://duwk8ykoc0iw8" path="res://scenes/exit.tres" id="3_qx68l"]
+[ext_resource type="Shortcut" uid="uid://brhfddsm5jelr" path="res://scenes/exit.tres" id="3_qx68l"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu0tj"]
 
@@ -35,7 +35,6 @@ offset_bottom = 720.0
 color = Color(0, 0, 0, 0.227451)
 
 [node name="Settings" type="Panel" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -205,6 +204,7 @@ shortcut_in_tooltip = false
 text = "Feedback"
 
 [node name="Controls" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,10 +256,9 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_xqj2d")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_xlygj")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Keyboard" type="Control" parent="Controls/TabContainer"]
-visible = false
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../../Return")
 metadata/_tab_index = 0
@@ -539,6 +538,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Mouse" type="Control" parent="Controls/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 

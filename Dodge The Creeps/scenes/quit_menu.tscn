@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://cajvmxm8mc3et"]
+
+[ext_resource type="FontFile" uid="uid://s176558udh6w" path="res://dodge_the_creeps_2d_assets/fonts/Xolonium-Regular.ttf" id="1_x5sgi"]
+[ext_resource type="Shortcut" uid="uid://brhfddsm5jelr" path="res://scenes/exit.tres" id="2_2n3jy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3ntn"]
+bg_color = Color(0, 0, 0, 0.239216)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gwko"]
+bg_color = Color(0.147046, 0.528546, 0.199048, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tf085"]
+bg_color = Color(0.104884, 0.39927, 0.145025, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x18n"]
+bg_color = Color(0.72806, 0.331534, 0.280994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22los"]
+bg_color = Color(0.548653, 0.230831, 0.193096, 1)
+
+[node name="QuitMenu" type="Panel"]
+visible = false
+offset_top = -3.0
+offset_right = 480.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b3ntn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -87.0
+offset_right = 173.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Yes" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 98.0
+offset_right = 168.0
+offset_bottom = 161.0
+focus_neighbor_left = NodePath("../No")
+focus_neighbor_right = NodePath("../No")
+theme_override_fonts/font = ExtResource("1_x5sgi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6gwko")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tf085")
+text = "Yes"
+
+[node name="No" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 98.0
+offset_right = 335.0
+offset_bottom = 161.0
+focus_neighbor_left = NodePath("../Yes")
+focus_neighbor_right = NodePath("../Yes")
+theme_override_fonts/font = ExtResource("1_x5sgi")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x18n")
+theme_override_styles/normal = SubResource("StyleBoxFlat_22los")
+shortcut = ExtResource("2_2n3jy")
+text = "No"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 30.0
+offset_right = 226.0
+offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("1_x5sgi")
+theme_override_font_sizes/font_size = 36
+text = "Quit?"
