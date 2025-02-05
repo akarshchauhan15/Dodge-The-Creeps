@@ -103,8 +103,15 @@ public partial class player : Area2D
 
     public void Animate(Vector2 motion)
     {
-        Sprite.FlipV = (Position.Y < motion.Y);
-        Sprite.FlipH = (Position.X > motion.X);
+        if (Position.Y > motion.Y)
+            Sprite.FlipV = false;
+        else if (Position.Y < motion.Y)
+            Sprite.FlipV = true;
+
+        if (Position.X < motion.X)
+            Sprite.FlipH = false;
+        else if (Position.X > motion.X)
+            Sprite.FlipH = true;
 
         if (Position != motion)
         {

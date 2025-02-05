@@ -28,6 +28,7 @@ public partial class SettingsMenu : Control
         HUD.Click();
         Hide();
 
+
         if (GetTree().Paused)
         {
             GetNode<Control>("../PauseMenu").Show();
@@ -64,11 +65,13 @@ public partial class SettingsMenu : Control
     {
         HUD.feedback = t;
         HUD.Click();
+        ConfigController.SaveSettings("Sound", "Feedback", t);
     }
 
     public void Music(bool t)
     {
         HUD.playMusic = t;
         HUD.Click();
+        ConfigController.SaveSettings("Sound", "Effects", t);
     }
 }

@@ -170,9 +170,9 @@ autowrap_mode = 0
 
 [node name="MusicButton" type="Button" parent="Settings/Sound"]
 layout_mode = 1
-offset_left = 22.0
+offset_left = 24.0
 offset_top = 444.0
-offset_right = 201.0
+offset_right = 203.0
 offset_bottom = 505.0
 focus_neighbor_left = NodePath("../../Exit")
 focus_neighbor_top = NodePath("../../Difficulty/AmountSlider")
@@ -188,9 +188,9 @@ text = "Effects"
 
 [node name="FeedbackButton" type="Button" parent="Settings/Sound"]
 layout_mode = 1
-offset_left = 212.0
+offset_left = 223.0
 offset_top = 444.0
-offset_right = 445.0
+offset_right = 456.0
 offset_bottom = 505.0
 focus_neighbor_left = NodePath("../MusicButton")
 focus_neighbor_right = NodePath("../MusicButton")

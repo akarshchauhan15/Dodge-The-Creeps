@@ -14,9 +14,9 @@ public partial class HUD : CanvasLayer
     public Timer timer;
     public Label message;
     public static AudioStreamPlayer click;
-    public static bool feedback = true;
+    public static bool feedback;
     public static AudioStreamPlayer music;
-    public static bool playMusic = true;
+    public static bool playMusic;
     public override void _Ready()
     {
         timer = GetNode<Timer>("MessageTimer");

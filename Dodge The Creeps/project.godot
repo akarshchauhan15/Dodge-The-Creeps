@@ -16,12 +16,16 @@ config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.ico"
 config/windows_native_icon="res://icon.ico"
 
+[autoload]
+
+ConfigController="*res://ConfigController.cs"
+
 [display]
 
 window/size/viewport_width=480
 window/size/viewport_height=720
+window/energy_saving/keep_screen_on=false
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_width"
 
 [dotnet]
 

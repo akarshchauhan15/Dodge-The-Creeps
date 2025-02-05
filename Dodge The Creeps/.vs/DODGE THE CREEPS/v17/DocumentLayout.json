@@ -19,6 +19,10 @@
       "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:configcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|e:\\projects\\godot\\dodge the creeps\\mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57CF5419-4497-4B3D-8F66-AA452A5E55E8}|Dodge The Creeps.csproj|solutionrelative:mob.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -30,8 +34,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConfigController.cs",
+              "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\ConfigController.cs",
+              "RelativeDocumentMoniker": "ConfigController.cs",
+              "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\ConfigController.cs",
+              "RelativeToolTip": "ConfigController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-05T12:43:48.282Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -40,7 +57,7 @@
               "RelativeDocumentMoniker": "scenes\\SettingsMenu.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\SettingsMenu.cs",
               "RelativeToolTip": "scenes\\SettingsMenu.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAkwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwEcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-18T13:53:28.093Z",
               "EditorCaption": ""
@@ -53,7 +70,7 @@
               "RelativeDocumentMoniker": "scenes\\main.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\main.cs",
               "RelativeToolTip": "scenes\\main.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAkwDEAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAkwH4AAAB2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-20T19:17:12.302Z",
               "EditorCaption": ""
@@ -66,7 +83,7 @@
               "RelativeDocumentMoniker": "HUD.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\HUD.cs",
               "RelativeToolTip": "HUD.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAuwFUAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAuwCoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-21T09:24:13.125Z",
               "EditorCaption": ""
@@ -79,14 +96,14 @@
               "RelativeDocumentMoniker": "scenes\\player.cs",
               "ToolTip": "E:\\Projects\\Godot\\Dodge The Creeps\\scenes\\player.cs",
               "RelativeToolTip": "scenes\\player.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-18T19:16:22.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Mob.cs",
               "DocumentMoniker": "E:\\Projects\\Godot\\Dodge The Creeps\\Mob.cs",
               "RelativeDocumentMoniker": "Mob.cs",
